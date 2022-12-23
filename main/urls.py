@@ -15,9 +15,19 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from rest_framework import routers
+
+from mailing.views import ClientViewSet, MailingViewSet, MessageViewSet
+
+
+router = routers.DefaultRouter()
+router.register(r'client', ClientViewSet)
+router.register(r'message', MessageViewSet)
+router.register(r'mailing', MailingViewSet)
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('mailing/', include('mailing.urls')),
+    path('mailing/', include(router.urls)),
 
 ]
