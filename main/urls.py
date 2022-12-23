@@ -16,6 +16,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from rest_framework import routers
+from rest_framework_simplejwt.views import (
+    TokenRefreshView,
+    TokenObtainPairView,
+)
 
 from mailing.views import ClientViewSet, MailingViewSet, MessageViewSet
 from .yasg import urlpatterns as doc_urls
@@ -28,6 +32,9 @@ router.register(r'mailing', MailingViewSet)
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('mailing/', include(router.urls)),
+    path("refresh/", TokenRefreshView.as_view()),
+    path("obtain/", TokenObtainPairView.as_view()),
+
 
 ]
 urlpatterns += doc_urls
