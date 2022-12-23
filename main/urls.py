@@ -18,16 +18,16 @@ from django.urls import path, include
 from rest_framework import routers
 
 from mailing.views import ClientViewSet, MailingViewSet, MessageViewSet
-
+from .yasg import urlpatterns as doc_urls
 
 router = routers.DefaultRouter()
 router.register(r'client', ClientViewSet)
 router.register(r'message', MessageViewSet)
 router.register(r'mailing', MailingViewSet)
 
-
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('mailing/', include(router.urls)),
 
 ]
+urlpatterns += doc_urls
