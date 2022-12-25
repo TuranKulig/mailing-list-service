@@ -31,7 +31,7 @@ router.register(r'mailing', MailingViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('mailing/', include(router.urls)),
+    path('', include(router.urls)),
     path("refresh/", TokenRefreshView.as_view()),
     path("obtain/", TokenObtainPairView.as_view()),
 
