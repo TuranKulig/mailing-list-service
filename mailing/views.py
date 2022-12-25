@@ -1,6 +1,6 @@
 from rest_framework import viewsets
 from rest_framework.response import Response
-import os
+from decouple import config
 import requests
 import pytz
 import datetime
@@ -23,8 +23,8 @@ class MailingViewSet(viewsets.ModelViewSet):
 
     logger = get_task_logger(__name__)
 
-    URL = os.getenv("URL")
-    TOKEN = os.getenv("TOKEN")
+    URL = config('URL')
+    TOKEN = config('TOKEN')
 
     def send_message(self, data, client_id, mailing_id, url=URL, token=TOKEN):
         mailing = Mailing.objects.get(pk=mailing_id)
@@ -48,7 +48,7 @@ class MailingViewSet(viewsets.ModelViewSet):
             return self.retry(countdown=60 * 60 * time)
 
     @action(detail=False, methods=['get'])
-    def fullinfo(self, request):
+    def info(self, request):
         total = Mailing.objects.count()
         mailing = Mailing.objects.values('id')
         content = {'Total mailings': total,
