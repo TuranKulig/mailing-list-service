@@ -3,7 +3,7 @@
 # Getting Started
 ### Follow the instruction and enjoy API
 
-#### 1. Clone the repository from Github.
+#### 1. Clone the repository from Gitlab.
 ```
 git clone https://gitlab.com/kulig.turan/mailing.git
 ```
