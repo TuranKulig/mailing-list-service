@@ -33,3 +33,32 @@ python manage.py migrate
 ```
 python manage.py runserver
 ```
+
+#### URLS
+```
+http://0.0.0.0:8000/
+```
+```
+http://0.0.0.0:8000/client/
+```
+```
+http://0.0.0.0:8000/message/
+```
+```
+http://0.0.0.0:8000/mailing/
+```
+```
+http://0.0.0.0:8000/mailing/info/
+```
+```
+http://0.0.0.0:8000/docs/
+```
+```
+http://0.0.0.0:8000/refresh/
+```
+```
+http://0.0.0.0:8000/obtain/
+```
+```
+http://0.0.0.0:8000/admin/
+```
